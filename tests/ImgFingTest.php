@@ -79,4 +79,46 @@ class ImgFingTest extends \PHPUnit\Framework\TestCase
 
         $this->assertLessThan(0.75, $imgFing->matchScore($f1, $f2));
     }
+
+    public function testCroppedCompareGD()
+    {
+        $imgFingCrop = new ImgFing([
+            'cropFit' => true,
+            'adapters' => ['GD'],
+        ]);
+        $imgFingNoCrop = new ImgFing([
+            'cropFit' => false,
+            'adapters' => ['GD'],
+        ]);
+
+        $cropped = $imgFingCrop->identifyFile(__DIR__ . '/data/multigradient-v1.png');
+        $noCrop = $imgFingNoCrop->identifyFile(__DIR__ . '/data/multigradient-v1.png');
+        $cropSquare = $imgFingCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
+        $noCropSquare = $imgFingNoCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
+
+        $this->assertSame(1, $imgFingCrop->matchScore($cropSquare, $noCropSquare));
+        $this->assertSame(1, $imgFingCrop->matchScore($cropped, $noCropSquare));
+        $this->assertLessThan(1, $imgFingCrop->matchScore($cropped, $noCrop));
+    }
+
+    public function testCroppedCompareImagick()
+    {
+        $imgFingCrop = new ImgFing([
+            'cropFit' => true,
+            'adapters' => ['Imagick'],
+        ]);
+        $imgFingNoCrop = new ImgFing([
+            'cropFit' => false,
+            'adapters' => ['Imagick'],
+        ]);
+
+        $cropped = $imgFingCrop->identifyFile(__DIR__ . '/data/multigradient-v1.png');
+        $noCrop = $imgFingNoCrop->identifyFile(__DIR__ . '/data/multigradient-v1.png');
+        $cropSquare = $imgFingCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
+        $noCropSquare = $imgFingNoCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
+
+        $this->assertSame(1, $imgFingCrop->matchScore($cropSquare, $noCropSquare));
+        $this->assertSame(1, $imgFingCrop->matchScore($cropped, $noCropSquare));
+        $this->assertLessThan(1, $imgFingCrop->matchScore($cropped, $noCrop));
+    }
 }

@@ -7,6 +7,7 @@ class ImgFing
     protected $options = [
         'bitSize' => 300,
         'avgColor' => true,
+        'cropFit' => false,
         'adapters' => [
             'Imagick',
             'GD'
@@ -46,9 +47,24 @@ class ImgFing
 
         $s = $this->getPixelSize();
 
+        $cx = 0;
+        $cy = 0;
+        $cw = imagesx($src);
+        $ch = imagesy($src);
+
+        if ($this->options['cropFit'] === true) {
+            if ($cw > $ch) {
+                $cx = ($cw - $ch) / 2;
+                $cw = $ch;
+            } else {
+                $cy = ($ch - $cw) / 2;
+                $ch = $cw;
+            }
+        }
+
         $rsmpl = imagecreatetruecolor($s, $s);
-        imagecopyresampled($rsmpl, $src, 0, 0, 0, 0, $s, $s, imagesx($src), imagesy($src));
-        
+        imagecopyresampled($rsmpl, $src, 0, 0, $cx, $cy, $s, $s, $cw, $ch);
+
         $r = $g = $b = [];
         
         for ($x =0; $x < $s; $x++) {
@@ -74,6 +90,17 @@ class ImgFing
 
         file_put_contents($file, $imageString);
         $img = new \Imagick($file);
+
+        if ($this->options['cropFit'] === true) {
+            $w = $img->getImageWidth();
+            $h = $img->getImageHeight();
+            if ($w > $h) {
+                $img->cropImage($h, $h, ($w - $h) / 2, 0);
+            } else {
+                $img->cropImage($w, $w, 0, ($h - $w) / 2);
+            }
+        }
+
         $img->resizeImage($s, $s, \Imagick::FILTER_CATROM, 1, false);
 
         $r = $g = $b = [];
