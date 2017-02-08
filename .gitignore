@@ -45,3 +45,7 @@ fabric.properties
 
 /composer.lock
 /vendor/
+/.idea/deployment.xml
+/.idea/modules.xml
+/.idea/php-imgfing.iml
+/.idea/vcs.xml
