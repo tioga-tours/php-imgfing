@@ -36,6 +36,7 @@ class ImgFing
         $src = imagecreatefromstring($string);
         
         $msg = null;
+        /** @noinspection PhpUnusedParameterInspection */
         set_error_handler(function($errno, $errstr) use (&$msg) { $msg = $errstr; });
         if ($src === false) {
             throw new \Exception('Unable to parse image: ' . $msg);
@@ -85,6 +86,10 @@ class ImgFing
                 $b[] = $rgb['b'] * 255;
             }
         }
+
+        $img->destroy();
+        unset($img);
+        unlink($file);
 
         return [$r, $g, $b];
     }

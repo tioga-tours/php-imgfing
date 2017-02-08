@@ -22,6 +22,9 @@
   "require-dev": {
     "phpunit/phpunit": "^6.0"
   },
+  "suggest": {
+    "ext-imagick": "*"
+  },
   "autoload": {
     "psr-4": {
       "ImgFing\\": [
