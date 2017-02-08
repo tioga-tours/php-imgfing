@@ -6,7 +6,7 @@ class ImgFing
 {
     protected $options = [
         'bitSize' => 300,
-        'avgColor' => true,
+        'avgColorAdjust' => 5,
         'cropFit' => false,
         'adapters' => [
             'Imagick',
@@ -30,6 +30,29 @@ class ImgFing
     public function identifyString($imgString)
     {
         return $this->identify($imgString);
+    }
+
+    public function createIdentityImageFromString($imgString)
+    {
+        $s = $this->getPixelSize();
+        $gd = imagecreatetruecolor($s, $s);
+
+        $fingerprint = $this->identifyString($imgString);
+
+        for ($i=0; $i<$this->options['bitSize']; $i+=3) {
+            $r = (int)$fingerprint[$i];
+            $g = (int)$fingerprint[$i+1];
+            $b = (int)$fingerprint[$i+2];
+
+            $color = imagecolorallocate($gd, $r*255, $g*255, $b*255);
+            imagesetpixel($gd, ($i/3) % $s, floor($i/3/$s), $color);
+        }
+        ob_start();
+        imagepng($gd, null, 0);
+        $fingString = ob_get_clean();
+        imagedestroy($gd);
+
+        return $fingString;
     }
     
     protected function identifyGD($string)
@@ -139,20 +162,18 @@ class ImgFing
             throw new \Exception('Unable to read images without GD and/or Imagick');
         }
 
-        if ($this->options['avgColor'] === true) {
-            $rAvg = array_sum($r) / count($r);
-            $gAvg = array_sum($g) / count($g);
-            $bAvg = array_sum($b) / count($b);
-            // If above average
-            $rAvg = $rAvg > 127 ? $rAvg - 1 : $rAvg;
-            $gAvg = $gAvg > 127 ? $gAvg - 1 : $gAvg;
-            $bAvg = $bAvg > 127 ? $bAvg - 1 : $bAvg;
-        } else {
-            $rAvg = 127;
-            $gAvg = 127;
-            $bAvg = 127;
-        }
+        // Some magic
+        $rAvg = $gAvg = $bAvg = 127;
+        foreach (['r', 'g', 'b'] as $channel) {
+            $avgName = $channel . 'Avg';
+            $$avgName = array_sum($$channel) / count($$channel);
 
+            if ($$avgName - 127 > $this->options['avgColorAdjust']) {
+                $$avgName = 127 + $this->options['avgColorAdjust'];
+            } elseif (abs($$avgName - 127) > $this->options['avgColorAdjust']) {
+                $$avgName = 127 - $this->options['avgColorAdjust'];
+            }
+        }
 
         $fingerprint = '';
         for ($i=0; $i< ceil($this->options['bitSize'] / 3); $i++) {
@@ -177,7 +198,7 @@ class ImgFing
             }
         }
 
-        return $matchCount / strlen($str1);
+        return pow($matchCount / strlen($str1), 2);
     }
 
     protected function getPixelSize()

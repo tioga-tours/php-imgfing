@@ -68,7 +68,7 @@ class ImgFingTest extends \PHPUnit\Framework\TestCase
         $f1 = $imgFing->identifyFile(__DIR__ . '/data/multigradient-v1.png');
         $f2 = $imgFing->identifyFile(__DIR__ . '/data/multigradient-v1-light+15.png');
 
-        $this->assertGreaterThan(0.98, $imgFing->matchScore($f1, $f2));
+        $this->assertGreaterThan(0.94, $imgFing->matchScore($f1, $f2));
     }
 
     public function testRotateCompare()
@@ -77,7 +77,7 @@ class ImgFingTest extends \PHPUnit\Framework\TestCase
         $f1 = $imgFing->identifyFile(__DIR__ . '/data/multigradient-v1.png');
         $f2 = $imgFing->identifyFile(__DIR__ . '/data/multigradient-v2.png');
 
-        $this->assertLessThan(0.75, $imgFing->matchScore($f1, $f2));
+        $this->assertLessThan(0.55, $imgFing->matchScore($f1, $f2));
     }
 
     public function testCroppedCompareGD()
