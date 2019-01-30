@@ -154,8 +154,6 @@ class ImgFing
             } elseif ($adapter === 'GD' && function_exists('imagecreatefromstring')) {
                 list($r, $g, $b) = $this->identifyGD($imageString);
                 break;
-            } else {
-                throw new \Exception('Unknown adapter: ' . $adapter);
             }
         }
         if ($r === null || $g === null || $b === null) {
