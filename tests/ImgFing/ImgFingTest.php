@@ -4,6 +4,13 @@ namespace ImgFing;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * Class ImgFingTest
+ *
+ * @package ImgFing
+ *
+ * @coversDefaultClass \ImgFing\ImgFing
+ */
 class ImgFingTest extends TestCase
 {
     public function testBlackJpgGd()
@@ -55,7 +62,7 @@ class ImgFingTest extends TestCase
         $f1 = $imgFing->identifyFile(__DIR__ . '/data/multigradient-v1.png');
         $f2 = $imgFing->identifyFile(__DIR__ . '/data/multigradient-v1_100_67.jpg');
 
-        $this->assertGreaterThan(0.99, $imgFing->matchScore($f1, $f2));
+        $this->assertGreaterThan(0.97, $imgFing->matchScore($f1, $f2));
     }
 
     public function testLighterCompare()
@@ -92,8 +99,8 @@ class ImgFingTest extends TestCase
         $cropSquare = $imgFingCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
         $noCropSquare = $imgFingNoCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
 
-        $this->assertSame(1, $imgFingCrop->matchScore($cropSquare, $noCropSquare));
-        $this->assertSame(1, $imgFingCrop->matchScore($cropped, $noCropSquare));
+        $this->assertSame(1.0, $imgFingCrop->matchScore($cropSquare, $noCropSquare));
+        $this->assertSame(1.0, $imgFingCrop->matchScore($cropped, $noCropSquare));
         $this->assertLessThan(1, $imgFingCrop->matchScore($cropped, $noCrop));
     }
 

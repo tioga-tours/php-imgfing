@@ -202,7 +202,7 @@ class ImgFing
     /**
      * @throws \Exception
      */
-    public function matchScore(string $str1, string $str2): string
+    public function matchScore(string $str1, string $str2): float
     {
         if (strlen($str1) !== strlen($str2)) {
             throw new \Exception('Strings should be same length (bitSize)');
