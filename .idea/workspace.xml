@@ -2,35 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8878b68d-15b9-4753-ab00-a7154fd2bab3" name="Default Changelist" comment="Improve project quality">
-      <change afterPath="$PROJECT_DIR$/.github/workflows/php.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-imgfing.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php-test-framework.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations/PHPUnit.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.php_cs.dist" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpmd.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/phpunit.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImgFing.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImgFing.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ImgFingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/ImgFingTest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/black.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/black.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/cold-steel-v1-q10.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/cold-steel-v1-q10.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/cold-steel-v1-q90.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/cold-steel-v1-q90.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/cold-steel-v1.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/cold-steel-v1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/multigradient-v1-light+15.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/multigradient-v1-light+15.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/multigradient-v1-square.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/multigradient-v1-square.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/multigradient-v1.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/multigradient-v1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/multigradient-v1_100_67.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/multigradient-v1_100_67.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/multigradient-v2.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/multigradient-v2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/data/white.png" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/data/white.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/php.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/php.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,8 +131,16 @@
       <updated>1623836315566</updated>
       <workItem from="1623836317165" duration="13000" />
       <workItem from="1623836515550" duration="1577000" />
-      <workItem from="1623838272858" duration="1451000" />
+      <workItem from="1623838272858" duration="1869000" />
     </task>
+    <task id="LOCAL-00001" summary="Improve project quality">
+      <created>1623839740967</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1623839740967</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

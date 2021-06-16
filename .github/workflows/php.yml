@@ -7,12 +7,23 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
-
+  run:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ['7.4', '8.0']
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-versions }}
+          extensions: gd, imagick
+          ini-values: "post_max_size=256M" #optional
 
       - name: Validate composer.json and composer.lock
         run: composer validate --strict
@@ -29,14 +40,5 @@ jobs:
       - name: Install dependencies
         run: composer install --prefer-dist --no-progress
 
-      - name: Test against PHP 7.4
+      - name: Test
         run: composer run-script test
-        with:
-          php-version: '7.4'
-          extensions: gd, imagick
-
-      - name: Test against PHP 8.0
-        run: composer run-script test
-        with:
-          php-version: '8.0'
-          extensions: gd, imagick
