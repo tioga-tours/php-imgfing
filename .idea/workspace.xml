@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8878b68d-15b9-4753-ab00-a7154fd2bab3" name="Default Changelist" comment="Update composer.lock">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="8878b68d-15b9-4753-ab00-a7154fd2bab3" name="Default Changelist" comment="Improve code">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImgFing.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImgFing.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tests/ImgFing/ImgFingTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ImgFing/ImgFingTest.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,7 +131,7 @@
       <updated>1623836315566</updated>
       <workItem from="1623836317165" duration="13000" />
       <workItem from="1623836515550" duration="1577000" />
-      <workItem from="1623838272858" duration="2204000" />
+      <workItem from="1623838272858" duration="2301000" />
     </task>
     <task id="LOCAL-00001" summary="Improve project quality">
       <created>1623839740967</created>
@@ -163,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623840318501</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Improve code">
+      <created>1623840500415</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1623840500415</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -186,6 +191,7 @@
     <MESSAGE value="Update wokflow" />
     <MESSAGE value="fix license" />
     <MESSAGE value="Update composer.lock" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update composer.lock" />
+    <MESSAGE value="Improve code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improve code" />
   </component>
 </project>

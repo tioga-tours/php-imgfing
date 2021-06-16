@@ -101,7 +101,7 @@ class ImgFingTest extends TestCase
 
         $this->assertSame(1.0, $imgFingCrop->matchScore($cropSquare, $noCropSquare));
         $this->assertSame(1.0, $imgFingCrop->matchScore($cropped, $noCropSquare));
-        $this->assertLessThan(1, $imgFingCrop->matchScore($cropped, $noCrop));
+        $this->assertLessThan(1.0, $imgFingCrop->matchScore($cropped, $noCrop));
     }
 
     public function testCroppedCompareImagick()
@@ -120,8 +120,8 @@ class ImgFingTest extends TestCase
         $cropSquare = $imgFingCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
         $noCropSquare = $imgFingNoCrop->identifyFile(__DIR__ . '/data/multigradient-v1-square.png');
 
-        $this->assertSame(1, $imgFingCrop->matchScore($cropSquare, $noCropSquare));
-        $this->assertSame(1, $imgFingCrop->matchScore($cropped, $noCropSquare));
-        $this->assertLessThan(1, $imgFingCrop->matchScore($cropped, $noCrop));
+        $this->assertSame(1.0, $imgFingCrop->matchScore($cropSquare, $noCropSquare));
+        $this->assertSame(1.0, $imgFingCrop->matchScore($cropped, $noCropSquare));
+        $this->assertLessThan(1.0, $imgFingCrop->matchScore($cropped, $noCrop));
     }
 }
