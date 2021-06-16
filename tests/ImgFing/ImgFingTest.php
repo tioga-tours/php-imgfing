@@ -2,13 +2,9 @@
 
 namespace ImgFing;
 
-/**
- * Created by PhpStorm.
- * User: martin
- * Date: 7-2-2017
- * Time: 14:06
- */
-class ImgFingTest extends \PHPUnit\Framework\TestCase
+use PHPUnit\Framework\TestCase;
+
+class ImgFingTest extends TestCase
 {
     public function testBlackJpgGd()
     {

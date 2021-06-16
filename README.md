@@ -5,7 +5,7 @@ duplicates or very similar images. Uses GD or Imagick.
 
 ## Options
 
-    bitSize     Bitsize of the fingerprint, multiple of 3, defaults to 300
+    bitSize     Bit size of the fingerprint, multiple of 3, defaults to 300. Means the number of characters
     avgColor    Apply a correction based on the diff with the avg color, defaults to 5, the normal avg color is 127. With 5, the average can be adjusted between 122 and 132
     adapters    Which adapters to use in this order. Defaults to ['Imagick', 'GD']
     

@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" name="Phango"
+         xsi:noNamespaceSchemaLocation="vendor/squizlabs/php_codesniffer/phpcs.xsd">
+    <description>Coding standard based on PSR-2 and with strong typing</description>
+
+    <file>src</file>
+    <file>tests</file>
+    <exclude-pattern>tests/ImgFing/data</exclude-pattern>
+
+    <arg name="basepath" value="src"/>
+    <arg name="colors"/>
+    <arg name="parallel" value="75"/>
+    <arg value="np"/>
+
+    <rule ref="PSR1"/>
+    <rule ref="PSR2"/>
+    <rule ref="Squiz.Operators.ComparisonOperatorUsage"/>
+</ruleset>
